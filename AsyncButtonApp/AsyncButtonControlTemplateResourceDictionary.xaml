@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ControlTemplate x:Key="AsyncButtonControlTemplate">
+        <Frame CornerRadius="{Binding Source={RelativeSource TemplatedParent},Path=ButtonCornerRadius}"
+               HasShadow="{Binding Source={RelativeSource TemplatedParent},Path=ButtonHasShadow}"
+               IsClippedToBounds="{Binding Source={RelativeSource TemplatedParent},Path=ButtonClippedToBounds}"
+               HorizontalOptions="Center" Padding="0">
+            <StackLayout BackgroundColor="{Binding Source={RelativeSource TemplatedParent},Path=ButtonBackgroundColor}" Orientation="Horizontal">
+                <Button Text="{Binding Source={RelativeSource TemplatedParent},Path=ButtonText}" BackgroundColor="{Binding Source={RelativeSource TemplatedParent},Path=ButtonBackgroundColor}" 
+                        TextColor="{Binding Source={RelativeSource TemplatedParent},Path=ButtonTextColor}" HorizontalOptions="CenterAndExpand"
+                        Command="{Binding Source={RelativeSource TemplatedParent},Path=FetchCommand}"/>
+                <ActivityIndicator Scale="0.9" IsRunning="{Binding Source={RelativeSource TemplatedParent},Path=IsFetching}" IsVisible="{Binding Source={RelativeSource TemplatedParent},Path=IsFetching}" 
+                                   HorizontalOptions="CenterAndExpand" Color="{Binding Source={RelativeSource TemplatedParent},Path=ButtonTextColor}" />
+            </StackLayout>
+        </Frame>
+    </ControlTemplate>
+</ResourceDictionary>
